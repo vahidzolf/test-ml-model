@@ -2,7 +2,6 @@ pipeline
 {
     stages
     {
-        agent any
         stage('Train model')
         {
             steps
