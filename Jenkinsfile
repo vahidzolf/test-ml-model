@@ -5,6 +5,7 @@ pipeline
     {
         stage('Train model')
         {
+            agent { label 'master' }
             steps
             {
                 script
