@@ -3,9 +3,9 @@ version: '2'
 services:
 
     ml-application:
-        build:
-            context: .
-            dockerfile: Dockerfile
+        build: .
+        ports:
+            - "5000:5000"
         image: mla-app:dev
         container_name: ml-application
         network_mode: "host"

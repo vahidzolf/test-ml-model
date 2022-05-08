@@ -5,7 +5,15 @@ import numpy as np
 from flask import Flask, request
 import sqlite3
 
+conn = sqlite3.connect('test.db')
 
+conn.execute('''CREATE TABLE IF NOT EXISTS COMPANY 
+         (ID INT PRIMARY KEY     NOT NULL,
+         headers           TEXT    NOT NULL,
+         body        TEXT);''')
+
+
+conn.close()
 
 model = None
 app = Flask(__name__)
