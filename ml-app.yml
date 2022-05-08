@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+
+    ml-application:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: mla-app:dev
+        container_name: ml-application
+        network_mode: "host"
