@@ -1,0 +1,18 @@
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('Train model')
+        {
+            agent { label 'master' }
+            steps
+            {
+                script
+                {
+                  sh 'python -m venv sklearn-venv; . sklearn-venv/bin/activate; pip install -r requirements.txt; python train.py'
+                }
+            }
+        }
+    }
+}
