@@ -8,4 +8,3 @@ services:
             - "5000:5000"
         image: mla-app:dev
         container_name: ml-application
-        network_mode: "host"
