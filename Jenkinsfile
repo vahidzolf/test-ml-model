@@ -20,8 +20,8 @@ pipeline
             {
                 script
                 {
-                    sh 'apt-get update &&  apt-get install -y python3-pip'
-                    sh 'pip3 install docker-compose'
+                    sh 'sudo  apt-get update &&  sudo apt-get install -y python3-pip'
+                    sh 'sudo pip3 install docker-compose'
                     sh 'docker-compose -f ml-app.yml build '
                 }
             }
