@@ -224,3 +224,5 @@ venv.bak/
 # Customized
 Dockerfile_2
 images
+iris.csv
+iris_trained_model.pkl

@@ -4,6 +4,9 @@ import pickle
 import numpy as np
 from flask import Flask, request
 import sqlite3
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
 
 conn = sqlite3.connect('test.db')
 
@@ -18,6 +21,11 @@ conn.close()
 model = None
 app = Flask(__name__)
 
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=["200 per day", "50 per hour"]
+)
 
 def load_model():
     global model
@@ -37,6 +45,7 @@ def home_endpoint():
 
 
 @app.route('/predict', methods=['POST'])
+@limiter.limit("10 per minute")
 def get_prediction():
     # Works only for a single sample
     global id
