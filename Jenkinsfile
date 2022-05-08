@@ -10,6 +10,7 @@ pipeline
             {
                 script
                 {
+                  sh 'python -m venv sklearn-venv'
                   sh '. sklearn-venv/bin/activate'
                   sh 'pip install -r requirements.txt '
                   sh 'python train.py'
