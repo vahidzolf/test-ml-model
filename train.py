@@ -31,7 +31,7 @@ y_train = y_new[:n_samples_train]
 X_test = X_new[n_samples_train:, :]
 y_test = y_new[n_samples_train:]
 
-clf = LogisticRegression(solver='lbfgs', max_iter=1000)
+clf = LogisticRegression(solver='saga', max_iter=2000)
 clf.fit(X_train, y_train)
 
 y_pred = clf.predict(X_test)
